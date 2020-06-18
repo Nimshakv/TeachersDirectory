@@ -1,0 +1,77 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<!--    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <title>Teachers Directory</title>
+
+  <body>
+
+           {% if messages %}
+           <div>
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissable" role="alert">
+                    <button class="close" data-dismiss="alert">
+                        <small>
+                            <sup>x</sup>
+                        </small>
+                    </button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+           </div>
+        {% endif %}
+
+
+        <div class="row header">
+            <div>
+                <a href="/" class="btn btn-info">Home</a>
+            </div>
+            <div class="ml-auto ">
+                <div style="display: inline-flex">
+                    {% if user.is_authenticated %}
+                        <a href="/logout" class="btn btn-info" style="margin: 5px;">Logout</a>
+                    {% else %}
+                        <a href="/login" class="btn btn-info" style="margin: 5px;">Login</a>
+                        <a href="/signup" class="btn btn-info" style="margin: 5px;">Sign up</a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+<script>
+$( document ).ready(function() {
+  const subjects = '{{teacher.subjects}}';
+  if(subjects){
+    $("#subjects > option").each(function(item){
+        if(subjects.includes(this.text)){
+            $(this).attr("selected", "selected");
+        }
+    })
+  }
+});
+
+</script>
+  </body>

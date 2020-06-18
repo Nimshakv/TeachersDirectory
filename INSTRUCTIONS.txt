@@ -1,0 +1,15 @@
+1. git clone <repo>
+2. cd <repo>
+3. Install virtual environment
+	On windows: 
+	py -m venv env
+4. Activate virtual environment
+	On windows:
+	.\env\Scripts\activate
+5. Install all dependencies
+	pip install -r requirements.txt
+6. Go to the project directory. Open the start.bat file in notepad++.
+7. Replace "D:\Personal\Projects\github\env\Scripts" by the Scripts folder path of your virtual env folder.
+8. Replace "D:\Projects\PythonTest\TeachersDirectory\TeachersDirectory" by your project root directory.
+9. Save it. Then double click start.bat file
+10. Take chrome. Type http://localhost:8080/

@@ -1,0 +1,31 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="row">
+        <a href="/" class="btn btn-info">Continue without Logging in</a>
+    </div>
+
+    <div id="su">
+        <form method="post" class="styled">
+            {% csrf_token %}
+            {% for field in form %}
+                    <label>
+                        <p class="label-txt">{{ field.label_tag }}</p><br>
+                        {% if field.name == "password1" or field.name == "password2" %}
+                            <input type="password" class="input" name="{{ field.name }}">
+                        {% else %}
+                            <input type="text" class="input" name="{{ field.name }}">
+                        {% endif %}
+                        <div class="line-box">
+                          <div class="line"></div>
+                        </div>
+                    </label><br>
+            {% endfor %}
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+
+{% endblock %}
+

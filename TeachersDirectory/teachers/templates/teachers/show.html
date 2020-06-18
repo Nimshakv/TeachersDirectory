@@ -1,0 +1,17 @@
+{% extends 'teachers/base.html' %}
+{% block content %}
+
+<div class="card">
+  {% if teacher.profile_picture %}
+    <img src="/media/{{ teacher.profile_picture }}" alt="{{ teacher.first_name }}" style="width:100%">
+  {% else %}
+    <img src="/static/images/dummy.png" alt="{{ teacher.first_name }}" style="width:100%">
+  {% endif %}
+  <h1>{{ teacher.first_name }} {{ teacher.last_name }}</h1>
+  <p>{{ teacher.email_address }}</p>
+  <p>Contact: {{ teacher.phone_number }} </p>
+  <p>Room: {{ teacher.room_number }}</p>
+  <p>Subjects: {{ teacher.subjects }}</p>
+</div>
+
+{% endblock %}

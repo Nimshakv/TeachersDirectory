@@ -1,0 +1,48 @@
+{% extends 'teachers/base.html' %}
+{% block content %}
+
+        <div>
+          <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+            <input type="hidden" name="id" value="{{teacher.id}}">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Your name.." value="{{teacher.first_name}}" required="required">
+
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Your last name.." value="{{teacher.last_name}}" required="required">
+
+            <label for="email_address">Email Address</label>
+            <input type="email" id="email_address" name="email_address" placeholder="Your Email.." value="{{teacher.email_address}}" required="required">
+
+            <label for="phone_number">Phone Number</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Phone number.." value="{{teacher.phone_number}}" required="required">
+
+            <label for="room_number">Room Number</label>
+            <input type="text" id="room_number" name="room_number" placeholder="Room Number.." value="{{teacher.room_number}}" required="required">
+
+
+            <label for="subjects">Subjects</label>
+            <select id="subjects" name="subjects" multiple size="5" required="required">
+              <option value="computerscience">Computer science</option>
+              <option value="physics">Physics</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="history">History</option>
+              <option value="geography">Geography</option>
+              <option value="biology">Biology</option>
+              <option value="chemistry">Chemistry</option>
+              <option value="english">English</option>
+              <option value="arabic">Arabic</option>
+            </select>
+
+            <label for="profile_picture">Upload Profile Picture</label>
+              {% if teacher %}
+                <img src="/media/{{ teacher.profile_picture }}" class="image prof_pic">
+            {% else %}
+                <img src="/static/images/dummy.png" class="image prof_pic">
+            {% endif %}
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/x-png,image/jpeg">
+
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+{% endblock %}
