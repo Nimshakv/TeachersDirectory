@@ -13,3 +13,6 @@
 8. Replace "D:\Projects\PythonTest\TeachersDirectory\TeachersDirectory" by your project root directory.
 9. Save it. Then double click start.bat file
 10. Take chrome. Type http://localhost:8080/
+
+( Please Note: while importing teachers list csv, import a folder that contains Teachers.csv and a sub folder that contains the images
+of teachers )
