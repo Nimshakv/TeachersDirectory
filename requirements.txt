@@ -10,7 +10,7 @@ django-bootstrap4==2.0.1
 django-multiselectfield==0.1.12
 django-phonenumber-field==4.0.0
 idna==2.9
-numpy==1.18.5
+numpy==1.22.0
 oauthlib==3.1.0
 pandas==1.0.4
 phonenumbers==8.12.5
